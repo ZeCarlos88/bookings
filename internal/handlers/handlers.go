@@ -1,12 +1,14 @@
 package handlers
 
 import (
+	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
-	"github.com/ZeCarlos88/bookings/pkg/config"
-	"github.com/ZeCarlos88/bookings/pkg/models"
-	"github.com/ZeCarlos88/bookings/pkg/render"
+	"github.com/ZeCarlos88/bookings/internal/config"
+	"github.com/ZeCarlos88/bookings/internal/models"
+	"github.com/ZeCarlos88/bookings/internal/render"
 )
 
 // Repo the repository used by the handlers
@@ -73,6 +75,26 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 	end := r.Form.Get("end")
 
 	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", start, end)))
+}
+
+type jsonResponse struct {
+	Ok      bool   `json:"ok"`
+	Message string `json:"message"`
+}
+
+func (m *Repository) AvailabilityJson(w http.ResponseWriter, r *http.Request) {
+	resp := jsonResponse{
+		Ok:      false,
+		Message: "Available!",
+	}
+
+	out, err := json.MarshalIndent(resp, "", "     ")
+	if err != nil {
+		log.Println(err)
+	}
+
+	w.Header().Set("Content-type", "application/json")
+	w.Write(out)
 }
 
 func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
