@@ -1,0 +1,22 @@
+mode: set
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:24.47,28.2 1 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:31.33,33.2 1 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:36.67,41.2 3 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:44.68,56.2 5 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:58.74,67.2 4 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:69.78,71.16 2 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:76.2,89.19 6 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:100.2,102.66 2 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:71.16,74.3 2 0
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:89.19,98.3 4 0
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:106.71,108.2 1 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:110.69,112.2 1 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:114.75,116.2 1 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:118.79,123.2 3 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:130.79,137.16 3 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:141.2,142.14 2 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:137.16,139.3 1 0
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:145.70,147.2 1 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:149.81,151.9 2 1
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:158.2,165.4 4 0
+github.com/ZeCarlos88/bookings/internal/handlers/handlers.go:151.9,156.3 4 1
