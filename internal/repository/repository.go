@@ -1,6 +1,10 @@
 package repository
 
-import "github.com/ZeCarlos88/bookings/internal/models"
+import (
+	"time"
+
+	"github.com/ZeCarlos88/bookings/internal/models"
+)
 
 type DatabaseRepo interface {
 	AllUsers() bool
@@ -8,4 +12,7 @@ type DatabaseRepo interface {
 	InserReservation(res models.Reservation) (int, error)
 
 	InsertRoomRestriction(r *models.RoomRestriction) error
+
+	SearchAvailabiltyByDatesByRoomID(start, end time.Time, roomID int) (bool, error)
+	SearchAvailabiltyForAllRooms(start, end time.Time) ([]models.Room, error)
 }

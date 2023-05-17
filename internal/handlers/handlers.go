@@ -69,8 +69,8 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		helpers.ServerError(w, err)
 		return
 	}
-	sd := r.Form.Get(start_date)
-	ed := r.Form.Get(end_date)
+	sd := r.Form.Get("start_date")
+	ed := r.Form.Get("end_date")
 
 	layout := "2006-01-02"
 	startDate, err := time.Parse(layout, sd)
@@ -82,7 +82,7 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		helpers.ServerError(w, err)
 	}
 
-	roomID, err := strconv.Atoi(r.Form.Get(room_id))
+	roomID, err := strconv.Atoi(r.Form.Get("room_id"))
 	if err != nil {
 		helpers.ServerError(w, err)
 	}
@@ -156,6 +156,24 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 	start := r.Form.Get("start")
 	end := r.Form.Get("end")
 
+	layout := "2006-01-02"
+	startDate, err := time.Parse(layout, start)
+	if err != nil {
+		helpers.ServerError(w, err)
+	}
+	endDate, err := time.Parse(layout, end)
+	if err != nil {
+		helpers.ServerError(w, err)
+	}
+	rooms, err := m.DB.SearchAvailabiltyForAllRooms(startDate, endDate)
+	if err != nil {
+		helpers.ServerError(w, err)
+	}
+
+	if len(rooms) == 0 {
+		m.App.Session.Put(r.Context(), "error", "no availability")
+		http.Redirect(w, r, "/search-availability", http.StatusSeeOther)
+	}
 	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", start, end)))
 }
 
